@@ -20,6 +20,8 @@ public class SistemaDeBancoS1 {
     /**
      * @param args the command line arguments
      */
+
+    private static ConsultaDeSaldo consultaDeSaldo;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
