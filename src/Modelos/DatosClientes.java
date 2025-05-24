@@ -18,13 +18,13 @@ public class DatosClientes {
     private String apellido2;
     private String calle;
     private int numeroCalle;
-    private int comuna;
+    private String comuna;
     private int numeroTelefono;
     private int numeroCuenta;
 
     
     
-    public DatosClientes(int rut, String nombre, String apellido1, String apellido2, String calle, int numeroCalle, int comuna, int numeroTelefono, int numeroCuenta) {
+    public DatosClientes(int rut, String nombre, String apellido1, String apellido2, String calle, int numeroCalle, String comuna, int numeroTelefono, int numeroCuenta) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -84,11 +84,11 @@ public class DatosClientes {
         this.numeroCalle = numeroCalle;
     }
 
-    public int getComuna() {
+    public String getComuna() {
         return comuna;
     }
 
-    public void setComuna(int comuna) {
+    public void setComuna(String comuna) {
         this.comuna = comuna;
     }
 
