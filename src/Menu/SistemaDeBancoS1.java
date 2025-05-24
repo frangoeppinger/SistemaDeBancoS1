@@ -75,7 +75,7 @@ public class SistemaDeBancoS1 {
                     break;
                 case 4:
                 System.out.println("Registrar nuevo cliente");
-                cliente = new DatosClientes(0, "", "", "", "", 0, 0, 0, 0);
+                cliente = new DatosClientes(0, "", "", "", "", 0, "", 0, 0);
                 cliente.registrarCliente();
                     break;
                 case 5:
