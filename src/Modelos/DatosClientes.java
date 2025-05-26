@@ -49,7 +49,12 @@ public class DatosClientes {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        if (nombre.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) { 
+            // para que no coloquen mas de 1 nombre o se equivoquen y coloquen apellido
+            this.nombre = nombre;
+        } else {
+            throw new IllegalArgumentException("El nombre debe ser una sola palabra sin espacios.");
+        }
     }
 
     public String getApellido1() {
@@ -57,7 +62,11 @@ public class DatosClientes {
     }
 
     public void setApellido1(String apellido1) {
-        this.apellido1 = apellido1;
+        if (apellido1.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) {
+            this.apellido1 = apellido1;
+        } else {
+            throw new IllegalArgumentException("El primer apellido debe ser una sola palabra sin espacios.");
+        }
     }
 
     public String getApellido2() {
@@ -65,7 +74,11 @@ public class DatosClientes {
     }
 
     public void setApellido2(String apellido2) {
-        this.apellido2 = apellido2;
+        if (apellido2.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) {
+            this.apellido2 = apellido2;
+        } else {
+            throw new IllegalArgumentException("El segundo apellido debe ser una sola palabra sin espacios.");
+        }
     }
 
     public String getCalle() {
@@ -111,19 +124,45 @@ public class DatosClientes {
     //Aqui se registran los datos del cliente
     public void registrarCliente() {
         Scanner scanner = new Scanner(System.in);
-
+        
         System.out.print("Ingrese el RUT del cliente: ");
         setRut(scanner.nextInt());
         scanner.nextLine(); 
-        System.out.print("Ingrese el nombre del cliente: ");
-        setNombre(scanner.nextLine());
 
-        System.out.print("Ingrese el primer apellido del cliente: ");
-        setApellido1(scanner.nextLine());
-
-        System.out.print("Ingrese el segundo apellido del cliente: ");
-        setApellido2(scanner.nextLine());
-
+        boolean datoValido = false;
+        
+        while (!datoValido) {
+            System.out.print("Ingrese el nombre del cliente: ");
+            try {
+                setNombre(scanner.nextLine());
+                datoValido = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+                return;
+            }
+        }
+        datoValido = false;
+        while (!datoValido) {
+            System.out.print("Ingrese el primer apellido del cliente: ");
+            try {
+                setApellido1(scanner.nextLine());
+                datoValido = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+                return;
+            }
+        }
+        datoValido = false;
+        while (!datoValido) {
+            System.out.print("Ingrese el segundo apellido del cliente: ");
+            try {
+                setApellido2(scanner.nextLine());
+                datoValido = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+                return;
+            }
+        }
         System.out.print("Ingrese la calle del cliente: ");
         setCalle(scanner.nextLine());
 
@@ -131,7 +170,7 @@ public class DatosClientes {
         setNumeroCalle(scanner.nextInt());
 
         System.out.print("Ingrese la comuna: ");
-        setComuna(scanner.nextInt());
+        setComuna(scanner.next());
 
         System.out.print("Ingrese el número de teléfono: ");
         setNumeroTelefono(scanner.nextInt());
@@ -149,13 +188,13 @@ public class DatosClientes {
     @Override
     public String toString() {
         return "Datos del cliente:  " + 
-                "Rut: " + rut + 
+                " Rut: " + rut + 
                 " Nombre: " + nombre + 
-                " Apellidos: " + apellido1 +  apellido2 + 
+                " Apellidos: " + apellido1 + "  " +  apellido2 + 
                 " Dirección. Calle: " + calle + 
-                " Numero: " + numeroCalle + 
+                " Número: " + numeroCalle + 
                 " Comuna: " + comuna + 
-                " Telefono: " + numeroTelefono + 
+                " Teléfono: " + numeroTelefono + 
                 " Cuenta: " + numeroCuenta ;
     }
     
