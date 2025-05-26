@@ -20,14 +20,15 @@ public class Deposito {
         int monto = scanner.nextInt();
 
         if (monto > 0) {
-            consultaDeSaldo.depositar(monto);
+            consultaDeSaldo.depositar(consultaDeSaldo.getSaldo() + monto);
             System.out.println("Deposito realizado de manera exitosa!");
             System.out.println("Se han depositado $" + Math.round(monto) + " pesos en la cuenta.");
         } else {
             System.out.println("El monto debe ser mayor a 0. Intente nuevamente.");
         }
         } catch (InputMismatchException e) {
-            System.out.println("Error: Debe ingresar un número válido. Intente nuevamente."); //Manejo de error para que no anden colocando letras
+            System.out.println("Error: Debe ingresar un número válido. Intente nuevamente."); 
+            //Manejo de error para que no anden colocando letras
             scanner.nextLine();
         }
     }
