@@ -1,0 +1,15 @@
+package Modelos;
+
+/**
+ *
+ * @author crist
+ */
+public class CuentaVista extends TipoCuenta {
+    public CuentaVista(String numeroCuenta, String titular, double saldo) {
+        super(numeroCuenta, titular, saldo);
+    }
+
+    public void mostrarInformacion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
