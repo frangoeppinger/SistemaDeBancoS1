@@ -1,0 +1,28 @@
+package Modelos;
+
+/**
+ *
+ * @author crist
+ */
+public class CuentaCorriente extends TipoCuenta {
+    private double lineaCredito;
+
+    public CuentaCorriente(String numeroCuenta, String titular, double saldo, double lineaCredito) {
+        super(numeroCuenta, titular, saldo);
+        this.lineaCredito = lineaCredito;
+    }
+
+    @Override
+    public void retirar(double monto) {
+        if (monto > 0 && monto <= saldo + lineaCredito) {
+            saldo -= monto;
+            System.out.println("Retiro de " + monto + " realizado con línea de crédito. Nuevo saldo: " + saldo);
+        } else {
+            System.out.println("Excede el saldo y la línea de crédito.");
+        }
+    }
+
+    public void mostrarInformacion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
