@@ -1,0 +1,24 @@
+package Modelos;
+
+/**
+ *
+ * @author crist
+ */
+public class CuentaAhorro extends TipoCuenta {
+    private double tasaInteres;
+
+    public CuentaAhorro(String numeroCuenta, String titular, double saldo, double tasaInteres) {
+        super(numeroCuenta, titular, saldo);
+        this.tasaInteres = tasaInteres;
+    }
+
+    public void aplicarInteres() {
+        double interes = saldo * tasaInteres;
+        saldo += interes;
+        System.out.println("Interés de " + interes + " aplicado. Nuevo saldo: " + saldo);
+    }
+
+    public void mostrarInformacion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
