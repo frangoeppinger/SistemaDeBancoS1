@@ -1,0 +1,44 @@
+package Modelos;
+
+/**
+ *
+ * @author crist
+ */
+public class TipoCuenta {
+    
+    private String numeroCuenta;
+    private String titular;
+    double saldo;
+    
+    
+    public TipoCuenta (String numeroCuenta, String titular, double saldo){
+        this.numeroCuenta = numeroCuenta;
+        this.titular = titular;
+        this.saldo = saldo;
+        
+    } 
+    
+    public void depositar (double monto){
+        if (monto > 0){
+            saldo += monto;
+            System.out.println("Depósito de " + monto + " realizado. Nuevo saldo: " + saldo);
+            
+        }else {
+            System.out.println("Ingresa un monto valido");
+        }
+    }
+    
+    public void retirar (double monto){
+        if (monto > 0 && monto <= saldo){
+            saldo -= monto;
+            System.out.println("Retiro de " + monto + " realizado. Nuevo saldo");
+        }else {
+            System.out.println("Fondos insuficiente. Ingresa un nuevo monto");
+        }
+    }
+    
+    public void mostranrInformacion(){
+        System.out.println("Cuenta N°: " + numeroCuenta + ", Titular: " + titular + ", Saldo: " + saldo);
+    }
+    
+}
