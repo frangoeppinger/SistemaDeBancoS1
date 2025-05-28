@@ -29,8 +29,26 @@ public class SistemaDeBancoS1 {
         ConsultaDeSaldo consultaDeSaldo = new ConsultaDeSaldo(0);
         DatosClientes cliente = null;
         
+//**************************************************************************
+//**************************************************************************
+        
+//Metodo Main: me dio error, asi que lo dejo como comentario por que es como lo que mas me cuesta pasarlo aca.
+        
+ /*CuentaVista cuenta1 = new CuentaVista("001", "Ana Pérez", 1000);
+        CuentaCorriente cuenta2 = new CuentaCorriente("002", "Luis Gómez", 500, 300);
+        CuentaAhorro cuenta3 = new CuentaAhorro("003", "María Torres", 1500, 0.02);
 
+        cuenta1.depositar(500);
+        cuenta2.retirar(700);
+        cuenta3.aplicarInteres();
 
+        cuenta1.mostrarInformacion();
+        cuenta2.mostrarInformacion();
+        cuenta3.mostrarInformacion();
+**********************************************
+**********************************************
+        */
+        
         while (opcion != 6) {
             try{
             System.out.println("---Bienvenido al sistema de banco---");
