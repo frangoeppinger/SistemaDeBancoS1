@@ -20,11 +20,12 @@ public class DatosClientes {
     private int numeroCalle;
     private String comuna;
     private int numeroTelefono;
+    private String tipoCuenta;
     private int numeroCuenta;
 
     
     
-    public DatosClientes(int rut, String nombre, String apellido1, String apellido2, String calle, int numeroCalle, String comuna, int numeroTelefono, int numeroCuenta) {
+    public DatosClientes(int rut, String nombre, String apellido1, String apellido2, String calle, int numeroCalle, String comuna, int numeroTelefono, String tipoCuenta, int numeroCuenta) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -33,6 +34,7 @@ public class DatosClientes {
         this.numeroCalle = numeroCalle;
         this.comuna = comuna;
         this.numeroTelefono = numeroTelefono;
+        this.tipoCuenta = tipoCuenta;
         this.numeroCuenta = numeroCuenta;
     }
 
@@ -116,6 +118,14 @@ public class DatosClientes {
     public int getNumeroCuenta() {
         return numeroCuenta;
     }
+    
+    public String getTipoCuenta() {
+        return tipoCuenta;
+    }
+
+    public void setTipoCuenta(String tipoCuenta) {
+        this.tipoCuenta = tipoCuenta;
+    }
 
     public void setNumeroCuenta(int numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
@@ -175,7 +185,10 @@ public class DatosClientes {
         System.out.print("Ingrese el número de teléfono: ");
         setNumeroTelefono(scanner.nextInt());
 
-        System.out.print("Ingrese el número de cuenta corriente: ");
+         System.out.print("Ingrese el tipo de cuenta: ");
+        setTipoCuenta(scanner.next());
+        
+        System.out.print("Ingrese el número de cuenta: ");
         setNumeroCuenta(scanner.nextInt());
 
         System.out.println("Cliente registrado exitosamente.");
@@ -195,6 +208,7 @@ public class DatosClientes {
                 " Número: " + numeroCalle + 
                 " Comuna: " + comuna + 
                 " Teléfono: " + numeroTelefono + 
+                "Tipo de Cuenta: " + tipoCuenta +
                 " Cuenta: " + numeroCuenta ;
     }
     
