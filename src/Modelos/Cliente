@@ -1,0 +1,27 @@
+package Modelos;
+
+/**
+ *
+ * @author crist
+ */
+public class Cliente implements MostrarInformacion{
+     private String nombre;
+    private String numeroCuenta;
+    private double saldo;
+    
+    
+    public Cliente(String nombre, String numeroCuenta, double saldo) {
+        this.nombre = nombre;
+        this.numeroCuenta = numeroCuenta;
+        this.saldo = saldo;
+    }
+    
+     @Override
+    public void mostrarInformacionCliente() {
+        System.out.println("Información del Cliente:");
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Número de Cuenta: " + numeroCuenta);
+        System.out.println("Saldo: $" + saldo);
+    }
+    
+}
