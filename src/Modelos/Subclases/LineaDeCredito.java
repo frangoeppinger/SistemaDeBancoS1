@@ -7,7 +7,7 @@ public class LineaDeCredito extends ATipoCuenta {
     private double limiteCredito; // Límite de crédito disponible
     private double tarifaPorUso; // Tarifa asociada al uso de la línea de crédito
 
-    public LineaDeCredito(int numeroDeCuenta, String titular, int saldo, double limiteCredito, double tarifaPorUso) {
+    public LineaDeCredito(int numeroDeCuenta, String titular, int saldo, int limiteCredito, int tarifaPorUso) {
         super(numeroDeCuenta, titular, saldo);
         this.limiteCredito = limiteCredito;
         this.tarifaPorUso = tarifaPorUso;

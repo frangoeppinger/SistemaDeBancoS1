@@ -4,12 +4,10 @@ import Modelos.ATipoCuenta;
 
 public class CuentaAhorro extends ATipoCuenta {
 
-    private double tasaInteres; // Tasa de interés anual
-    private double saldoMinimo; // Saldo mínimo requerido
+    private int saldoMinimo; // Saldo mínimo requerido
 
-    public CuentaAhorro(int numeroDeCuenta, String titular, int saldo, double tasaInteres, double saldoMinimo) {
+    public CuentaAhorro(int numeroDeCuenta, String titular, int saldo, int saldoMinimo) {
         super(numeroDeCuenta, titular, saldo);
-        this.tasaInteres = tasaInteres;
         this.saldoMinimo = saldoMinimo;
     }
 
@@ -24,25 +22,13 @@ public class CuentaAhorro extends ATipoCuenta {
         }
     }
 
-    // Método para calcular el interés acumulado
-    public double calcularInteresAnual() {
-        return saldo * (tasaInteres / 100);
-    }
-
     // Getters y setters
-    public double getTasaInteres() {
-        return tasaInteres;
-    }
-
-    public void setTasaInteres(double tasaInteres) {
-        this.tasaInteres = tasaInteres;
-    }
 
     public double getSaldoMinimo() {
         return saldoMinimo;
     }
 
-    public void setSaldoMinimo(double saldoMinimo) {
+    public void setSaldoMinimo(int saldoMinimo) {
         this.saldoMinimo = saldoMinimo;
     }
     @Override
@@ -52,7 +38,6 @@ public class CuentaAhorro extends ATipoCuenta {
                 ", titular='" + titular + '\'' +
                 ", saldo=" + saldo +
                 ", giros=" + giros +
-                ", tasaInteres=" + tasaInteres +
                 ", saldoMinimo=" + saldoMinimo +
                 '}';
     }
