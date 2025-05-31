@@ -1,0 +1,9 @@
+package Modelos;
+
+/**
+ *
+ * @author crist
+ */
+interface MostrarInformacion {
+    void mostrarInformacionCliente();
+}
