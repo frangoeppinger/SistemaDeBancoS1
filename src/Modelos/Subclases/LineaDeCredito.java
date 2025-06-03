@@ -3,48 +3,22 @@ package Modelos.Subclases;
 import Modelos.ATipoCuenta;
 
 public class LineaDeCredito extends ATipoCuenta {
+    private double limiteCredito;
+    private double tasaInteres;
 
-    private double limiteCredito; // Límite de crédito disponible
-    private double tarifaPorUso; 
-
-    public LineaDeCredito(int numeroDeCuenta, String titular, int saldo, int limiteCredito, int tarifaPorUso) {
+    public LineaDeCredito(int numeroDeCuenta, String titular, int saldo, int limiteCredito, double tasaInteres) {
         super(numeroDeCuenta, titular, saldo);
         this.limiteCredito = limiteCredito;
-        this.tarifaPorUso = tarifaPorUso;
+        this.tasaInteres = tasaInteres;
     }
 
     @Override
-    public void realizarGiro(int monto) {
-        if (monto > 0 && (saldo + monto) <= limiteCredito) {
-            saldo += monto;
-            saldo -= tarifaPorUso; 
-            giros++;
-            System.out.println("Giro realizado con éxito. Nuevo saldo: $" + saldo);
-        } else {
-            System.out.println("El monto es inválido o excede el límite de crédito permitido.");
-        }
+    public void mostrarDetallesCuenta() {
+        System.out.println("Línea de Crédito:");
+        System.out.println("Número de cuenta: " + numeroDeCuenta);
+        System.out.println("Titular: " + titular);
+        System.out.println("Saldo: $" + saldo);
+        System.out.println("Límite de crédito: $" + limiteCredito);
+        System.out.println("Tasa de interés: " + tasaInteres + "%");
     }
-
-    // Para consultar el límite de crédito disponible
-    public double consultarLimiteCredito() {
-        return limiteCredito - saldo; 
-    }
-
-    
-    public double getLimiteCredito() {
-        return limiteCredito;
-    }
-
-    public void setLimiteCredito(double limiteCredito) {
-        this.limiteCredito = limiteCredito;
-    }
-
-    public double getTarifaPorUso() {
-        return tarifaPorUso;
-    }
-
-    public void setTarifaPorUso(double tarifaPorUso) {
-        this.tarifaPorUso = tarifaPorUso;
-    }
-
 }

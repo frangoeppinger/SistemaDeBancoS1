@@ -46,12 +46,14 @@ public class SistemaDeBancoS1 {
                         cuenta = new CuentaAhorro(0, "Titular Ahorro", 0, 5000);
                         break;
                     case 3:
-                        cuenta = new LineaDeCredito(456789123, "Titular Crédito", 0, 10000, 100);
+                        cuenta = new LineaDeCredito(456789123, "Titular Crédito", 0, 10000,5.0);
                         break;
                     default:
                         System.out.println("Selección inválida. Por favor, elija un tipo de cuenta válido.");
                         continue;
                 }
+                cuenta.mostrarDetallesCuenta();
+                
                 System.out.println("Seleccione una opción:");
                 System.out.println("1. Depositos");
                 System.out.println("2. Giros");
@@ -95,7 +97,7 @@ public class SistemaDeBancoS1 {
                             System.out.println("No hay cliente registrado. Registre un cliente primero.");
                         } else {
                             System.out.println("Consultar datos de clientes");
-                            cliente.consultarDatosCliente();
+                            cliente.mostrarInformacion(); // Usar el método de la interface
                             System.out.println("Saldo actual: $" + consultaDeSaldo.getSaldo());
                         }
                         break;

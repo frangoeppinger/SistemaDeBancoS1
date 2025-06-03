@@ -14,49 +14,35 @@ public abstract class ATipoCuenta {
     protected int saldo; 
     protected int giros; 
     
-    public ATipoCuenta(int numeroDeCuenta, String titular, int saldo) {
-        this.numeroDeCuenta = numeroDeCuenta;
+    public ATipoCuenta(int numeroCuenta, String titular, int saldo) {
+        this.numeroDeCuenta = numeroCuenta;
         this.titular = titular;
         this.saldo = saldo;
-        this.giros = 0; //para que inicie con 0 giros hechos
     }
-    
-    public abstract void realizarGiro(int monto); 
-    
-    public void depositar(int monto) {
-        if (monto > 0) {
-            saldo += monto;
-            System.out.println("Depósito realizado con éxito. Nuevo saldo: $" + saldo);
-        } else {
-            System.out.println("El monto debe ser mayor a 0.");
-        }
-    }
-    
-    public double consultarSaldo() {
-        return saldo;
-    }
-    
-    public int getNumeroDeCuenta() {
+
+    public abstract void mostrarDetallesCuenta(); 
+
+    public int getNumeroCuenta() {
         return numeroDeCuenta;
     }
-    
-    public void setNumeroDeCuenta(int numeroDeCuenta) {
-        this.numeroDeCuenta = numeroDeCuenta;
-    }
-    
+
     public String getTitular() {
         return titular;
     }
-    
-    public void setTitular(String titular) {
-        this.titular = titular;
+
+    public int getSaldo() {
+        return saldo;
     }
-    
-    public int getGiros() {
-        return giros;
+
+    public void depositar(int monto) {
+        saldo += monto;
     }
-    
-    public void setGiros(int giros) {
-        this.giros = giros;
+
+    public void retirar(int monto) {
+        if (saldo >= monto) {
+            saldo -= monto;
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
     }
 }

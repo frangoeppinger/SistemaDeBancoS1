@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 /**
  *
- * @author franciscagoeppinger
+ * //author franciscagoeppinger
  */
-public class DatosClientes implements IDatosCliente {
+public class DatosClientes implements IMostrarInformacion {
     private int rut;
     private String nombre;
     private String apellido1;
@@ -54,22 +54,22 @@ public class DatosClientes implements IDatosCliente {
     }
     
 
-    @Override
+    
     public int getRut() {
         return rut;
     }
 
-    @Override
+    
     public void setRut(int rut) {
         this.rut = rut;
     }
 
-    @Override
+    
     public String getNombre() {
         return nombre;
     }
 
-    @Override
+    
     public void setNombre(String nombre) {
         if (nombre.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) { 
             // para que no coloquen mas de 1 nombre o se equivoquen y coloquen apellido
@@ -79,12 +79,12 @@ public class DatosClientes implements IDatosCliente {
         }
     }
 
-    @Override
+    
     public String getApellido1() {
         return apellido1;
     }
 
-    @Override
+    
     public void setApellido1(String apellido1) {
         if (apellido1.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) {
             this.apellido1 = apellido1;
@@ -94,12 +94,12 @@ public class DatosClientes implements IDatosCliente {
     }
     
 
-    @Override
+    
     public String getApellido2() {
         return apellido2;
     }
 
-    @Override
+    
     public void setApellido2(String apellido2) {
         if (apellido2.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) {
             this.apellido2 = apellido2;
@@ -108,42 +108,42 @@ public class DatosClientes implements IDatosCliente {
         }
     }
 
-    @Override
+    
     public String getCalle() {
         return calle;
     }
 
-    @Override
+    
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
-    @Override
+    
     public int getNumeroCalle() {
         return numeroCalle;
     }
 
-    @Override
+    
     public void setNumeroCalle(int numeroCalle) {
         this.numeroCalle = numeroCalle;
     }
 
-    @Override
+    
     public String getComuna() {
         return comuna;
     }
 
-    @Override
+    
     public void setComuna(String comuna) {
         this.comuna = comuna;
     }
 
-    @Override
+    
     public int getNumeroTelefono() {
         return numeroTelefono;
     }
 
-    @Override
+    
     public void setNumeroTelefono(int numeroTelefono) {
         this.numeroTelefono = numeroTelefono;
     }
@@ -158,12 +158,12 @@ public class DatosClientes implements IDatosCliente {
         this.tipoCuenta = tipoCuenta;
     }
 
-    @Override
+    
     public int getNumeroCuenta() {
         return numeroCuenta;
     }
 
-    @Override
+    
     public void setNumeroCuenta(int numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
@@ -236,16 +236,13 @@ public class DatosClientes implements IDatosCliente {
         System.out.println(this.toString());
     }
     @Override
-    public String toString() {
-        return "Datos del cliente:  " + 
-                " Rut: " + rut + 
-                " Nombre: " + nombre + 
-                " Apellidos: " + apellido1 + "  " +  apellido2 + 
-                " Dirección. Calle: " + calle + 
-                " Número: " + numeroCalle + 
-                " Comuna: " + comuna + 
-                " Teléfono: " + numeroTelefono + 
-                " Tipo de Cuenta: " + tipoCuenta +
-                " Cuenta: " + numeroCuenta ;
+    public void mostrarInformacion() {
+        System.out.println("Información del cliente:");
+        System.out.println("Rut Cliente: " + rut);
+        System.out.println("Nombre: " + nombre + " " + apellido1 + " " + apellido2);
+        System.out.println("Dirección: " + calle + " " + numeroCalle + ", " + comuna);
+        System.out.println("Teléfono: " + numeroTelefono);
+        System.out.println("Número de cuenta: " + numeroCuenta);
+        System.out.println("Tipo de cuenta: " + tipoCuenta);
     }
 }
