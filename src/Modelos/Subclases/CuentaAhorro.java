@@ -22,7 +22,7 @@ public class CuentaAhorro extends ATipoCuenta {
         }
     }
 
-    // Getters y setters
+    
 
     public double getSaldoMinimo() {
         return saldoMinimo;

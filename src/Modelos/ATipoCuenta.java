@@ -14,7 +14,6 @@ public abstract class ATipoCuenta {
     protected int saldo; 
     protected int giros; 
     
-    // Constructor
     public ATipoCuenta(int numeroDeCuenta, String titular, int saldo) {
         this.numeroDeCuenta = numeroDeCuenta;
         this.titular = titular;
@@ -22,7 +21,6 @@ public abstract class ATipoCuenta {
         this.giros = 0; //para que inicie con 0 giros hechos
     }
     
-        // Métodos comunes para todas las cuentas
     public abstract void realizarGiro(int monto); 
     
     public void depositar(int monto) {
@@ -38,7 +36,6 @@ public abstract class ATipoCuenta {
         return saldo;
     }
     
-    // Getters y setters
     public int getNumeroDeCuenta() {
         return numeroDeCuenta;
     }

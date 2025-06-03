@@ -10,8 +10,7 @@ import java.util.Scanner;
  *
  * @author franciscagoeppinger
  */
-public class DatosClientes {
-    
+public class DatosClientes implements IDatosCliente {
     private int rut;
     private String nombre;
     private String apellido1;
@@ -20,11 +19,9 @@ public class DatosClientes {
     private int numeroCalle;
     private String comuna;
     private int numeroTelefono;
-    private String tipoCuenta;
     private int numeroCuenta;
+    private String tipoCuenta; 
 
-    
-    
     public DatosClientes(int rut, String nombre, String apellido1, String apellido2, String calle, int numeroCalle, String comuna, int numeroTelefono, String tipoCuenta, int numeroCuenta) {
         this.rut = rut;
         this.nombre = nombre;
@@ -38,18 +35,41 @@ public class DatosClientes {
         this.numeroCuenta = numeroCuenta;
     }
 
+    public void setTipoCuentaPorSeleccion(int seleccion) {
+        switch (seleccion) {
+            case 1:
+                this.tipoCuenta = "Corriente";
+                break;
+            case 2:
+                this.tipoCuenta = "Ahorro";
+                break;
+            case 3:
+                this.tipoCuenta = "Línea de crédito";
+                break;
+            default:
+                System.out.println("Selección inválida. No se asignó un tipo de cuenta.");
+                this.tipoCuenta = "No especificado";
+                break;
+        }
+    }
+    
+
+    @Override
     public int getRut() {
         return rut;
     }
 
+    @Override
     public void setRut(int rut) {
         this.rut = rut;
     }
 
+    @Override
     public String getNombre() {
         return nombre;
     }
 
+    @Override
     public void setNombre(String nombre) {
         if (nombre.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) { 
             // para que no coloquen mas de 1 nombre o se equivoquen y coloquen apellido
@@ -59,10 +79,12 @@ public class DatosClientes {
         }
     }
 
+    @Override
     public String getApellido1() {
         return apellido1;
     }
 
+    @Override
     public void setApellido1(String apellido1) {
         if (apellido1.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) {
             this.apellido1 = apellido1;
@@ -70,11 +92,14 @@ public class DatosClientes {
             throw new IllegalArgumentException("El primer apellido debe ser una sola palabra sin espacios.");
         }
     }
+    
 
+    @Override
     public String getApellido2() {
         return apellido2;
     }
 
+    @Override
     public void setApellido2(String apellido2) {
         if (apellido2.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$")) {
             this.apellido2 = apellido2;
@@ -83,43 +108,47 @@ public class DatosClientes {
         }
     }
 
+    @Override
     public String getCalle() {
         return calle;
     }
 
+    @Override
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
+    @Override
     public int getNumeroCalle() {
         return numeroCalle;
     }
 
+    @Override
     public void setNumeroCalle(int numeroCalle) {
         this.numeroCalle = numeroCalle;
     }
 
+    @Override
     public String getComuna() {
         return comuna;
     }
 
+    @Override
     public void setComuna(String comuna) {
         this.comuna = comuna;
     }
 
+    @Override
     public int getNumeroTelefono() {
         return numeroTelefono;
     }
 
+    @Override
     public void setNumeroTelefono(int numeroTelefono) {
         this.numeroTelefono = numeroTelefono;
     }
 
-    public int getNumeroCuenta() {
-        return numeroCuenta;
-    }
-    
-    public String getTipoCuenta() {
+    public String gettipoCuenta() {
         return tipoCuenta;
     }
 
@@ -127,6 +156,12 @@ public class DatosClientes {
         this.tipoCuenta = tipoCuenta;
     }
 
+    @Override
+    public int getNumeroCuenta() {
+        return numeroCuenta;
+    }
+
+    @Override
     public void setNumeroCuenta(int numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
@@ -185,7 +220,7 @@ public class DatosClientes {
         System.out.print("Ingrese el número de teléfono: ");
         setNumeroTelefono(scanner.nextInt());
 
-         System.out.print("Ingrese el tipo de cuenta: ");
+        System.out.print("Ingrese el tipo de cuenta: ");
         setTipoCuenta(scanner.next());
         
         System.out.print("Ingrese el número de cuenta: ");
@@ -211,8 +246,4 @@ public class DatosClientes {
                 "Tipo de Cuenta: " + tipoCuenta +
                 " Cuenta: " + numeroCuenta ;
     }
-    
-    
-    
-    
 }

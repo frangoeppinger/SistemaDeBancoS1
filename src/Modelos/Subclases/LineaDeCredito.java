@@ -5,7 +5,7 @@ import Modelos.ATipoCuenta;
 public class LineaDeCredito extends ATipoCuenta {
 
     private double limiteCredito; // Límite de crédito disponible
-    private double tarifaPorUso; // Tarifa asociada al uso de la línea de crédito
+    private double tarifaPorUso; 
 
     public LineaDeCredito(int numeroDeCuenta, String titular, int saldo, int limiteCredito, int tarifaPorUso) {
         super(numeroDeCuenta, titular, saldo);
@@ -17,7 +17,7 @@ public class LineaDeCredito extends ATipoCuenta {
     public void realizarGiro(int monto) {
         if (monto > 0 && (saldo + monto) <= limiteCredito) {
             saldo += monto;
-            saldo -= tarifaPorUso; // Descontar la tarifa por uso
+            saldo -= tarifaPorUso; 
             giros++;
             System.out.println("Giro realizado con éxito. Nuevo saldo: $" + saldo);
         } else {
@@ -25,12 +25,12 @@ public class LineaDeCredito extends ATipoCuenta {
         }
     }
 
-    // Método para consultar el límite de crédito disponible
+    // Para consultar el límite de crédito disponible
     public double consultarLimiteCredito() {
-        return limiteCredito - saldo; // Límite restante
+        return limiteCredito - saldo; 
     }
 
-    // Getters y setters
+    
     public double getLimiteCredito() {
         return limiteCredito;
     }
