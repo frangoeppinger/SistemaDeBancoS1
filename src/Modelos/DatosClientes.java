@@ -245,7 +245,7 @@ public class DatosClientes implements IDatosCliente {
                 " Número: " + numeroCalle + 
                 " Comuna: " + comuna + 
                 " Teléfono: " + numeroTelefono + 
-                "Tipo de Cuenta: " + tipoCuenta +
+                " Tipo de Cuenta: " + tipoCuenta +
                 " Cuenta: " + numeroCuenta ;
     }
 }
