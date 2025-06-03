@@ -148,12 +148,12 @@ public class DatosClientes implements IDatosCliente {
         this.numeroTelefono = numeroTelefono;
     }
 
-    @Override
+    
     public String gettipoCuenta() {
         return tipoCuenta;
     }
 
-    @Override
+    
     public void setTipoCuenta(String tipoCuenta) {
         this.tipoCuenta = tipoCuenta;
     }
