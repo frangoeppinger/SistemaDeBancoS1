@@ -6,10 +6,14 @@ package Menu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Modelos.ATipoCuenta;
 import Modelos.ConsultaDeSaldo;
 import Modelos.DatosClientes;
 import Modelos.Deposito;
 import Modelos.Giros;
+import Modelos.Subclases.CuentaAhorro;
+import Modelos.Subclases.CuentaCorriente;
+import Modelos.Subclases.LineaDeCredito;
 
 /**
  *
@@ -22,6 +26,7 @@ public class SistemaDeBancoS1 {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
         consultaDeSaldo = new ConsultaDeSaldo(0); 
+        ATipoCuenta cuenta = null;
         Giros giros = new Giros(consultaDeSaldo);
         DatosClientes cliente = null;
 
@@ -32,11 +37,21 @@ public class SistemaDeBancoS1 {
                 System.out.println("Seleccione su tipo de cuenta: 1.Corriente 2.Ahorro 3.Linea de credito");
                 int tipoCuentaSeleccion = scanner.nextInt();
                 scanner.nextLine();
-                if (cliente == null) {
-                    cliente = new DatosClientes(0, "", "", "", "", 0, "", 0, "", 0);
+                
+                switch (tipoCuentaSeleccion) {
+                    case 1:
+                        cuenta = new CuentaCorriente(0, "Titular Corriente", 0);
+                        break;
+                    case 2:
+                        cuenta = new CuentaAhorro(0, "Titular Ahorro", 0, 5000);
+                        break;
+                    case 3:
+                        cuenta = new LineaDeCredito(456789123, "Titular Crédito", 0, 10000, 100);
+                        break;
+                    default:
+                        System.out.println("Selección inválida. Por favor, elija un tipo de cuenta válido.");
+                        continue;
                 }
-                cliente.setTipoCuentaPorSeleccion(tipoCuentaSeleccion);
-
                 System.out.println("Seleccione una opción:");
                 System.out.println("1. Depositos");
                 System.out.println("2. Giros");
